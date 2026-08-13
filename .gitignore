@@ -1,0 +1,36 @@
+# Виртуальное окружение
+venv/
+.venv/
+env/
+
+# Секреты
+.env
+.env.*
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Тесты и кэш
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Базы данных (если используешь SQLite)
+*.db
+*.sqlite3
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Логи
+*.log
