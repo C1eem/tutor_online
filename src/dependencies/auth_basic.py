@@ -19,7 +19,8 @@ async def get_current_user_basic(
         headers={"WWW-Authenticate": "Basic"},
     )
     query = select(UserORM).where(
-        UserORM.email == credentials.username, UserORM.password == credentials.password
+        UserORM.email == credentials.username,
+        UserORM.hashed_password == credentials.password,
     )
 
     result = await db.execute(query)
