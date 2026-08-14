@@ -7,4 +7,9 @@ engine = create_async_engine(
     echo=True,
 )
 
-sesison_factory = async_sessionmaker(engine)
+SessionLocal = async_sessionmaker(engine, expire_on_commit=False)
+
+
+async def get_db():
+    async with SessionLocal() as db:
+        yield db

@@ -1,12 +1,15 @@
-from database import sesison_factory
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from models.users import UserORM
 from schemas.users import UserAddDTO
 
 
-async def create_user(user: UserAddDTO):
-    async with sesison_factory() as session:
-        new_user = UserORM(**user.model_dump())
-        session.add(new_user)
-        await session.commit()
-        await session.refresh(new_user)
-        return new_user
+async def create_user(
+    user: UserAddDTO,
+    db: AsyncSession,
+):
+    new_user = UserORM(**user.model_dump())
+    db.add(new_user)
+    await db.commit()
+    await db.refresh(new_user)
+    return new_user
