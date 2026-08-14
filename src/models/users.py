@@ -17,7 +17,7 @@ class UserORM(TimestampMixin, Base):
 
     id: Mapped[intpk]
     email: Mapped[str_100]
-    password: Mapped[str]
+    hashed_password: Mapped[str]
     first_name: Mapped[str_100]
     last_name: Mapped[str_100]
     middle_name: Mapped[str_100 | None]
