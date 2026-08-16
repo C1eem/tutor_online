@@ -5,7 +5,7 @@ from repositories.users import create_user
 from schemas.users import UserAddDTO, UserCreateInDB
 
 
-async def create_user_ivan(
+async def create_user_ivan_service(
     new_user: UserAddDTO,
     db: AsyncSession,
 ):
