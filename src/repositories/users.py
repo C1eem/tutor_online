@@ -1,11 +1,11 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from models.users import UserORM
-from schemas.users import UserAddDTO
+from schemas.users import UserCreateInDB
 
 
 async def create_user(
-    user: UserAddDTO,
+    user: UserCreateInDB,
     db: AsyncSession,
 ):
     new_user = UserORM(**user.model_dump())
