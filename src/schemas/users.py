@@ -17,3 +17,7 @@ class UserAddDTO(UserCreate):
 
 class UserCreateInDB(UserCreate):
     hashed_password: str
+
+
+class UserResponseDTO(UserCreate):
+    pass
