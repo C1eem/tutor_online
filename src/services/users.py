@@ -1,16 +1,15 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.security import hash_password
-from repositories.users import create_user
-from schemas.users import UserAddDTO, UserCreateInDB
+from repositories.users import UserRepository
+from schemas.users import UserAddDTO
 
 
-async def create_user_ivan_service(
-    new_user: UserAddDTO,
-    db: AsyncSession,
-):
-    user = UserCreateInDB(
-        **new_user.model_dump(exclude={"password"}),
-        hashed_password=hash_password(new_user.password)
-    )
-    return await create_user(user, db)
+class UserService:
+
+    def __init__(self, db: AsyncSession) -> None:
+        self.db = db
+        self.user_repo = UserRepository(self.db)
+
+    async def create_user(self, new_user: UserAddDTO):
+        res = await self.user_repo.create_user(new_user)
+        return res

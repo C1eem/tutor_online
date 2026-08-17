@@ -11,7 +11,6 @@ async def delete_user_by_id(
     query = delete(UserORM).where(UserORM.id == user_id)
     await db.execute(query)
     await db.commit()
-    return
 
 
 async def get_all_users(
