@@ -1,8 +1,8 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.security import hash_password
-from repositories.users import UserRepository
-from schemas.users import UserAddDTO, UserCreateInDB
+from src.core.security import hash_password
+from src.repositories.users import UserRepository
+from src.schemas.users import UserAddDTO, UserCreateInDB
 
 
 class UserService:

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.database import get_db
-from services.admin import delete_user_service, select_all_users_service
+from src.core.database import get_db
+from src.services.admin import delete_user_service, select_all_users_service
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 

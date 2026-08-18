@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from repositories.admin import delete_user_by_id, get_all_users
+from src.repositories.admin import delete_user_by_id, get_all_users
 
 
 async def delete_user_service(

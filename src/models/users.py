@@ -3,7 +3,7 @@ import enum
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from models.base import Base, TimestampMixin, intpk, str_100
+from src.models.base import Base, TimestampMixin, intpk, str_100
 
 
 class UserRole(enum.Enum):

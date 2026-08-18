@@ -3,8 +3,8 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.database import get_db
-from models.users import UserORM
+from src.core.database import get_db
+from src.models.users import UserORM
 
 security = HTTPBasic()
 

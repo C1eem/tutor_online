@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 
-from dependencies.auth_jwt import config, security
-from schemas.users import UserLoginSchema
+from src.dependencies.auth_jwt import config, security
+from src.schemas.users import UserLoginSchema
 
 router = APIRouter(prefix="/auth", tags=["Авторизация"])
 

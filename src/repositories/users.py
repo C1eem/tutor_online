@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models.users import UserORM
-from schemas.users import UserCreateInDB
+from src.models.users import UserORM
+from src.schemas.users import UserCreateInDB
 
 
 class UserRepository:

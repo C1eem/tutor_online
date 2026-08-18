@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends
 
-from dependencies.services import get_user_service
-from schemas.users import UserAddDTO, UserResponseDTO
-from services.users import UserService
+from src.dependencies.services import get_user_service
+from src.schemas.users import UserAddDTO, UserResponseDTO
+from src.services.users import UserService
 
 router = APIRouter(prefix="/users")
 
 
 @router.post("/", response_model=UserResponseDTO)
-async def create_user_Ivan(
+async def create_user(
     new_user: UserAddDTO,
     service: UserService = Depends(get_user_service),
 ):

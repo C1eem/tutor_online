@@ -1,7 +1,7 @@
 from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models.users import UserORM
+from src.models.users import UserORM
 
 
 async def delete_user_by_id(

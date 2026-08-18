@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
 
-from models.users import UserRole
+from src.models.users import UserRole
 
 
 class UserCreate(BaseModel):
@@ -21,3 +21,8 @@ class UserCreateInDB(UserCreate):
 
 class UserResponseDTO(UserCreate):
     pass
+
+
+class UserLoginSchema(BaseModel):
+    username: str
+    password: str
