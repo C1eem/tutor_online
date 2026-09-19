@@ -1,14 +1,17 @@
-# import os
-# import sys
-
-# sys.path.insert(1, os.path.join(sys.path[0], ".."))
-
-import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-from routers.users import router as user_router
+from src.api import main_router
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
@@ -16,4 +19,4 @@ async def root():
     return {"msg": "Hello World!"}
 
 
-app.include_router(user_router)
+app.include_router(main_router)
