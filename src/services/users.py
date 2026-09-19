@@ -6,15 +6,14 @@ from src.schemas.users import UserAddDTO, UserCreateInDB
 
 
 class UserService:
-
     def __init__(self, db: AsyncSession) -> None:
         self.db = db
-        self.user_repo = UserRepository(self.db)
+        self.user_repo = UserRepository()
 
     async def create_user(self, new_user: UserAddDTO):
 
         user_data = UserCreateInDB(
             **new_user.model_dump(exclude={"password"}),
             hashed_password=hash_password(new_user.password),
-        )
-        return await self.user_repo.create_user(user_data)
+        ).model_dump()
+        return await self.user_repo.add_one(user_data)

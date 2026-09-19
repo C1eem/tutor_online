@@ -7,9 +7,9 @@ from src.services.users import UserService
 router = APIRouter(prefix="/users")
 
 
-@router.post("/", response_model=UserResponseDTO)
+@router.post("/")
 async def create_user(
     new_user: UserAddDTO,
     service: UserService = Depends(get_user_service),
-):
-    return await service.create_user(new_user)
+) -> int:
+    return await service.add_user(new_user)
